@@ -62,7 +62,7 @@ const projectList: Projects = [
   {
     id: 2,
     type: 'software',
-    sortOrder: 2,
+    sortOrder: 10,
     published: '2023-01-22',
     slug: 'kitchen-helper',
     title: 'Kitchen Helper',
@@ -87,7 +87,7 @@ const projectList: Projects = [
   {
     id: 3,
     type: 'software',
-    sortOrder: 3,
+    sortOrder: 13,
     published: '2023-08-12',
     slug: 'simple-nutrition',
     title: 'Simple Nutrition',
@@ -120,7 +120,7 @@ const projectList: Projects = [
   {
     id: 4,
     type: 'report',
-    sortOrder: 4,
+    sortOrder: 2,
     published: '2023-12-22',
     slug: 'challenges-of-unstructured-data',
     title: 'The Challenges of Unstructured Data',
