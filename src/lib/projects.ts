@@ -68,8 +68,7 @@ const projectList: Projects = [
     deployment: [
       {
         tech: 'Heroku',
-        explanation:
-          ' - Hosts PostgreSQL and the Python app that provides the API endpoints.',
+        explanation: ' - Hosts PostgreSQL and the Python app.',
       },
       { tech: 'Sentry' },
     ],
@@ -115,10 +114,7 @@ const projectList: Projects = [
     stack: [
       { tech: 'NextJS' },
       { tech: 'TypeScript' },
-      {
-        tech: 'Vercel',
-        explanation: ' - Used for backend storage provision',
-      },
+      { tech: 'TailwindCSS' },
       {
         tech: 'PostgreSQL',
         explanation: ' - Used for backend database',
