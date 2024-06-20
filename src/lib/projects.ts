@@ -68,7 +68,7 @@ const projectList: Projects = [
     deployment: [
       {
         tech: 'Heroku',
-        explanation: ' - Hosts PostgreSQL and the Python app.',
+        explanation: ' - Hosts PostgreSQL & Python app',
       },
       { tech: 'Sentry' },
     ],
