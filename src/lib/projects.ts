@@ -50,14 +50,7 @@ const projectList: Projects = [
       { tech: 'Swagger', explanation: ' - Used for API documentation' },
       { tech: 'TailwindCSS' },
     ],
-    deployment: [
-      { tech: 'Vercel' },
-      {
-        tech: 'Heroku',
-        explanation: ' - Used for backend storage and API provision',
-      },
-      { tech: 'Sentry' },
-    ],
+    deployment: [{ tech: 'Vercel' }, { tech: 'Sentry' }],
   },
   {
     id: 2,
