@@ -4,23 +4,36 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Container } from '@/components/Container'
 import { FormattedDate } from '@/components/FormattedDate'
-import projectList, { Project } from '@/lib/projects'
+import projectList from '@/lib/projects'
+import type { Project } from '@/lib/projects'
 import { TbCode } from 'react-icons/tb'
 import {
+  SiAnaconda,
+  SiAmazonaws,
+  SiChartdotjs,
+  SiCircleci,
+  SiCloudflare,
+  SiDocker,
   SiFastapi,
   SiFirebase,
+  SiGeopandas,
   SiGithub,
   SiHeroku,
   SiJavascript,
+  SiJupyter,
   SiMicrosoftsqlserver,
   SiNetlify,
   SiNextdotjs,
+  SiNumpy,
+  SiPandas,
+  SiPlotly,
   SiPostgresql,
   SiPowerbi,
   SiPrisma,
   SiPython,
   SiReact,
   SiRender,
+  SiScikitlearn,
   SiSentry,
   SiSupabase,
   SiSwagger,
@@ -34,26 +47,38 @@ import { ImFilePdf } from 'react-icons/im'
 
 // Map tech to icon
 const techToIcon: { [key: string]: JSX.Element } = {
-  React: <SiReact />,
-  NextJS: <SiNextdotjs />,
-  TypeScript: <SiTypescript />,
+  Anaconda: <SiAnaconda />,
+  AWS: <SiAmazonaws />,
+  ChartJS: <SiChartdotjs />,
+  CircleCI: <SiCircleci />,
+  CloudFlare: <SiCloudflare />,
+  Docker: <SiDocker />,
+  FastAPI: <SiFastapi />,
+  FireBase: <SiFirebase />,
+  GeoPandas: <SiGeopandas />,
+  Heroku: <SiHeroku />,
   JavaScript: <SiJavascript />,
-  TailwindCSS: <SiTailwindcss />,
-  PostgreSQL: <SiPostgresql />,
+  Jupyter: <SiJupyter />,
   MicrosoftSQL: <SiMicrosoftsqlserver />,
+  Netlify: <SiNetlify />,
+  NextJS: <SiNextdotjs />,
+  Numpy: <SiNumpy />,
+  Pandas: <SiPandas />,
+  Ploty: <SiPlotly />,
+  PostgreSQL: <SiPostgresql />,
+  PowerBI: <SiPowerbi />,
   Prisma: <SiPrisma />,
   Python: <SiPython />,
-  FastAPI: <SiFastapi />,
-  Swagger: <SiSwagger />,
-  Vercel: <SiVercel />,
-  Netlify: <SiNetlify />,
-  Heroku: <SiHeroku />,
+  React: <SiReact />,
   Render: <SiRender />,
-  FireBase: <SiFirebase />,
-  SupaBase: <SiSupabase />,
+  SciKitLearn: <SiScikitlearn />,
   Sentry: <SiSentry />,
-  PowerBI: <SiPowerbi />,
+  SupaBase: <SiSupabase />,
+  Swagger: <SiSwagger />,
   Tableau: <SiTableau />,
+  TailwindCSS: <SiTailwindcss />,
+  TypeScript: <SiTypescript />,
+  Vercel: <SiVercel />,
 }
 
 const getProject = cache(async (slug: string) => {
@@ -107,10 +132,11 @@ export default async function Project({
           <hr className="my-12 border-gray-200" />
           {project.image && (
             <Image
-              src={`/${project.image}`}
-              alt={`${project.title} screenshot`}
+              src={`/assets/screenshots/${project.image}`}
+              alt={''} // Blank as it is purely decorative
               width={1200}
               height={600}
+              className="rounded-md"
             />
           )}
 
@@ -140,36 +166,41 @@ export default async function Project({
             </div>
 
             <div className="prose prose-slate mt-14 [&>h2:nth-of-type(3n)]:before:bg-violet-200 [&>h2:nth-of-type(3n+2)]:before:bg-indigo-200 [&>h2]:mt-12 [&>h2]:flex [&>h2]:items-center [&>h2]:font-mono [&>h2]:text-sm [&>h2]:font-medium [&>h2]:leading-7 [&>h2]:text-slate-900 [&>h2]:before:mr-3 [&>h2]:before:h-3 [&>h2]:before:w-1.5 [&>h2]:before:rounded-r-full [&>h2]:before:bg-cyan-200 [&>ul]:mt-6 [&>ul]:list-['\2013\20'] [&>ul]:pl-5">
-              <h2>Deployment:</h2>
-              {project.deployment.map((item, index) => (
-                <div key={index} className="flex items-center">
-                  <span className="mr-2">
-                    {techToIcon[item.tech] || (
-                      <TbCode className="inline-block" />
-                    )}
-                  </span>
-                  <span>{item.tech}</span>
-                  {item.explanation && (
-                    <span className="italic">{item.explanation}</span>
-                  )}
-                </div>
-              ))}
-
+              {project.deployment && project.deployment.length > 0 && (
+                <>
+                  <h2>Deployment:</h2>
+                  {project.deployment.map((item, index) => (
+                    <div key={index} className="flex items-center">
+                      <span className="mr-2">
+                        {techToIcon[item.tech] || (
+                          <TbCode className="inline-block" />
+                        )}
+                      </span>
+                      <span>{item.tech}</span>
+                      {item.explanation && (
+                        <span className="italic">{item.explanation}</span>
+                      )}
+                    </div>
+                  ))}
+                </>
+              )}
               <h2>Links:</h2>
-              <div className="flex items-center">
-                <span className="mr-2">
-                  <VscVmRunning className="inline-block" />
-                </span>
-                <span>
-                  <Link
-                    href={project.link}
-                    className="text-pink-500"
-                    target="_blank"
-                  >
-                    Live Site
-                  </Link>
-                </span>
-              </div>
+              {project.link.length > 0 && (
+                <div className="flex items-center">
+                  <span className="mr-2">
+                    <VscVmRunning className="inline-block" />
+                  </span>
+                  <span>
+                    <Link
+                      href={project.link}
+                      className="text-pink-500"
+                      target="_blank"
+                    >
+                      Live Site
+                    </Link>
+                  </span>
+                </div>
+              )}
 
               <div className="flex items-center">
                 <span className="mr-2">
@@ -214,7 +245,7 @@ export default async function Project({
           <hr className="my-12 border-gray-200" />
           {project.image && (
             <Image
-              src={`/${project.image}`}
+              src={`/assets/screenshots/${project.image}`}
               alt={`${project.title} screenshot`}
               width={1200}
               height={600}

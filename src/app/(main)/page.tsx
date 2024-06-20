@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Container } from '@/components/Container'
 import { FormattedDate } from '@/components/FormattedDate'
 
@@ -26,17 +27,26 @@ function ProjectEntry({ project: project }: { project: Project }) {
             className="order-first font-mono text-sm leading-7 text-slate-500"
           />
           <p className="mt-1 text-base leading-7 text-slate-700">
+            {project.image.length > 0 && (
+              <Image
+                src={`/assets/screenshots/${project.image}`}
+                alt={''} // Blank as it is purely decorative
+                height={250}
+                width={250}
+                className="mx-auto mb-4 rounded-md md:float-start md:mb-0 md:mr-4"
+              />
+            )}
             {project.description}
           </p>
           <div className="mt-4 flex items-center gap-4">
-            {project.type === 'software' && (
+            {project.type === 'software' && project.link.length > 0 && (
               <>
                 <Link
                   href={`${project.link}`}
                   className="flex items-center text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900"
                   aria-label={`Live site for project ${project.title}`}
                 >
-                  <VscVmRunning className="mr-2" /> Live Site
+                  <VscVmRunning className="mr-2" /> Live Deployment
                 </Link>
 
                 <span

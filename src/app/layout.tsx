@@ -4,10 +4,10 @@ import '@/styles/tailwind.css'
 
 export const metadata: Metadata = {
   title: {
-    template: 'Tim Jackson - %s',
-    default: 'Tim Jackson (@tj2904) - A Portfoilio',
+    template: 'Tim Jackson : %s',
+    default: 'The portfolio of Tim Jackson',
   },
-  description: 'A collection of projects built by Tim Jackson.',
+  description: "A collection of Tim Jackson's work and projects.",
 }
 
 export default function RootLayout({

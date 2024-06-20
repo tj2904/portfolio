@@ -74,7 +74,7 @@ export default function MainLayout({
               </Link>
             </p>
             <p className="mt-3 text-lg font-medium leading-8 text-slate-700">
-              A solution-focused Data Scientist and former Educational Leader.
+              A solution-focused Data Scientist and experienced leader.
             </p>
           </div>
           <AboutSection className="mt-12 hidden lg:block" />
@@ -99,7 +99,7 @@ export default function MainLayout({
                     LinkedInIcon,
                     `https://www.linkedin.com/in/tj2904/`,
                   ],
-                  ['X, formally Twitter', XIcon, 'https://www.x.com/tj2904'],
+                  ['X', XIcon, 'https://www.x.com/tj2904'],
                 ] as const
               ).map(([label, Icon, link]) => (
                 <li key={label} className="flex">
@@ -109,7 +109,7 @@ export default function MainLayout({
                     aria-label={label}
                   >
                     <Icon className="h-8 w-8 fill-slate-400 group-hover:fill-slate-600" />
-                    <span className="hidden sm:ml-3 sm:block">{label}</span>
+                    <span className="hidden sm:ml-3 md:block">{label}</span>
                   </Link>
                 </li>
               ))}
