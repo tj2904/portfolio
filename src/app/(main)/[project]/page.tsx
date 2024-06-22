@@ -10,16 +10,20 @@ import { TbCode } from 'react-icons/tb'
 import {
   SiAnaconda,
   SiAmazonaws,
+  SiAxios,
   SiChartdotjs,
   SiCircleci,
   SiCloudflare,
   SiDocker,
   SiFastapi,
   SiFirebase,
+  SiFlask,
   SiGeopandas,
   SiGithub,
+  SiGithubactions,
   SiHeroku,
   SiJavascript,
+  SiJest,
   SiJupyter,
   SiMicrosoftsqlserver,
   SiNetlify,
@@ -30,6 +34,8 @@ import {
   SiPostgresql,
   SiPowerbi,
   SiPrisma,
+  SiPydantic,
+  SiPytest,
   SiPython,
   SiReact,
   SiRender,
@@ -49,15 +55,19 @@ import { ImFilePdf } from 'react-icons/im'
 const techToIcon: { [key: string]: JSX.Element } = {
   Anaconda: <SiAnaconda />,
   AWS: <SiAmazonaws />,
+  Axios: <SiAxios />,
   ChartJS: <SiChartdotjs />,
   CircleCI: <SiCircleci />,
   CloudFlare: <SiCloudflare />,
   Docker: <SiDocker />,
   FastAPI: <SiFastapi />,
   FireBase: <SiFirebase />,
+  Flask: <SiFlask />,
   GeoPandas: <SiGeopandas />,
+  'GitHub Actions': <SiGithubactions />,
   Heroku: <SiHeroku />,
   JavaScript: <SiJavascript />,
+  Jest: <SiJest />,
   Jupyter: <SiJupyter />,
   MicrosoftSQL: <SiMicrosoftsqlserver />,
   Netlify: <SiNetlify />,
@@ -68,10 +78,12 @@ const techToIcon: { [key: string]: JSX.Element } = {
   PostgreSQL: <SiPostgresql />,
   PowerBI: <SiPowerbi />,
   Prisma: <SiPrisma />,
+  Pydantic: <SiPydantic />,
+  Pytest: <SiPytest />,
   Python: <SiPython />,
   React: <SiReact />,
   Render: <SiRender />,
-  SciKitLearn: <SiScikitlearn />,
+  'Scikit-Learn': <SiScikitlearn />,
   Sentry: <SiSentry />,
   SupaBase: <SiSupabase />,
   Swagger: <SiSwagger />,
@@ -96,9 +108,23 @@ export async function generateMetadata({
 }) {
   let project = await getProject(params.project)
 
-  return {
+  let metadata: { title: string; description?: string } = {
     title: `Projects - ${project.title} `,
   }
+
+  if (project.type === 'software') {
+    metadata = {
+      ...metadata,
+      description: `Details of Tim Jackson's ${project.title} project, including the technologies used and links to the live site and repository.`,
+    }
+  } else if (project.type === 'report') {
+    metadata = {
+      ...metadata,
+      description: `Details of Tim Jackson's ${project.title} report, including the abstract and link to the full text as PDF.`,
+    }
+  }
+
+  return metadata
 }
 
 export default async function Project({

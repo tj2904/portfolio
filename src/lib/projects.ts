@@ -32,18 +32,23 @@ const projectList: Projects = [
     slug: 'positive-press',
     title: 'Positive Press (Frontend)',
     description:
-      'My BSc Final Year Project. I created a web app that uses Natural Language Processing (NLP) to analyse news headlines and provide a curated feed of news ranked by positivity. This is the consuming frontend responsive app, built in NextJs.',
+      'My BSc Final Year Project. I created a web app that uses Natural Language Processing (NLP) to analyse news headlines and provide a curated feed of news ranked by positivity. This is the responsive frontend app, built in NextJS to demonstrate the utility of the APIs.',
     image: 'positive-press.png',
     link: 'https://positive-press.vercel.app/',
     repo: 'https://www.github.com/tj2904/postive-press',
     rational:
-      'There is a growing body of evidence that negative news can have a detrimental effect on mental health. This site was created to provide a curated feed of news that is ranked by positivity. The project uses Natural Language Processing (NLP) to analyse news headlines and provide a curated feed of news ranked by positivity. The app uses a FastAPI backend to provide the API for the frontend to consume. The project also uses a PostgreSQL database to store the news headlines and their associated sentiment scores. Sentry is used for error tracking and Swagger for API documentation. The frontend is built using NextJS and TailwindCSS and the project is deployed on Vercel.',
+      'There is a growing body of evidence that negative news can have a detrimental effect on mental health. This site was created to provide a curated feed of news that is ranked by positivity. The project uses Natural Language Processing (NLP) to analyse news headlines and provide a curated feed of news ranked by positivity. The frontend is built using NextJS and TailwindCSS and the project is deployed on Vercel.',
     stack: [
       { tech: 'NextJS' },
       { tech: 'TypeScript' },
       { tech: 'TailwindCSS' },
+      { tech: 'Jest', explanation: ' - Component Testing' },
     ],
-    deployment: [{ tech: 'Vercel' }, { tech: 'Sentry' }],
+    deployment: [
+      { tech: 'Vercel' },
+      { tech: 'GitHub Actions' },
+      { tech: 'Sentry', explanation: ' - Error Tracking' },
+    ],
   },
   {
     id: 2,
@@ -51,9 +56,9 @@ const projectList: Projects = [
     sortOrder: 2,
     published: '2023-05-01',
     slug: 'pp-api',
-    title: 'Positive Press (Backend & API Service)',
+    title: 'Positive Press (Backend & API)',
     description:
-      'My BSc Final Year Project. I created a Python API that uses Natural Language Processing (NLP) to analyse news headlines and provide a curated feed of news ranked by positivity. This is served by the backend app using FastAPI, and the documentation of the endpoints found at the link below is provided using Swagger. There is a consuming frontend app, built in NextJS.',
+      'My BSc Final Year Project. I created a Python API that uses Natural Language Processing (NLP) to analyse news headlines and provide a curated feed of news ranked by positivity. This is served by the backend app using FastAPI, and stored in a PostgreSQL database. The documentation of the endpoints found at the link below is provided using Swagger. There is a consuming frontend app, built in NextJS.',
     image: 'pp-api.png',
     link: 'https://positive-press-api.herokuapp.com/docs/',
     repo: 'https://www.github.com/tj2904/pp-api',
@@ -61,16 +66,19 @@ const projectList: Projects = [
       'There is a growing body of evidence that negative news can have a detrimental effect on mental health. This site was created to provide a curated feed of news that is ranked by positivity. The project uses Natural Language Processing (NLP) to analyse news headlines and provide a curated feed of news ranked by positivity. The app uses a FastAPI backend to provide the API for the frontend to consume. The project also uses a PostgreSQL database to store the news headlines and their associated sentiment scores. Sentry is used for error tracking and Swagger for API documentation. The frontend is built using NextJS and TailwindCSS and the project is deployed on Vercel.',
     stack: [
       { tech: 'Python' },
+      { tech: 'Pandas' },
       { tech: 'PostgreSQL' },
       { tech: 'FastAPI' },
-      { tech: 'Swagger', explanation: ' - Used for API documentation' },
+      { tech: 'Pydantic' },
+      { tech: 'Swagger', explanation: ' - API documentation' },
+      { tech: 'Pytest' },
     ],
     deployment: [
       {
         tech: 'Heroku',
         explanation: ' - Hosts PostgreSQL & Python app',
       },
-      { tech: 'Sentry' },
+      { tech: 'Sentry', explanation: ' - Error Tracking' },
     ],
   },
   {
@@ -81,7 +89,7 @@ const projectList: Projects = [
     slug: 'kitchen-helper',
     title: 'Kitchen Helper',
     description:
-      'Quickly convert the units of measurement from one to another, or take a recipe from a website and convert the units of measurement in it.',
+      'Quickly convert the units of measurement from one to another, or take a recipe from a website and convert the units of measurement in it. Built using Flask and React.',
     image: 'kitchen-helper.png',
     link: 'https://kitchen-helper.onrender.app/',
     repo: 'https://www.github.com/tj2904/kitchen-helper',
@@ -90,12 +98,20 @@ const projectList: Projects = [
     stack: [
       { tech: 'React' },
       { tech: 'JavaScript' },
+      { tech: 'Axios', explanation: ' - Request / Reponse handling' },
+      { tech: 'Python' },
+      { tech: 'Flask', explanation: ' - API endpoints' },
       {
         tech: 'Spoonacular',
-        explanation: ' - Used for data provision',
+        explanation: ' - Data provision',
       },
+      { tech: 'GitHub Actions', explanation: ' - CI/CD' },
     ],
-    deployment: [{ tech: 'Render' }, { tech: 'Sentry' }],
+    deployment: [
+      { tech: 'Render' },
+      { tech: 'CircleCI', explanation: ' - Deployment' },
+      { tech: 'Sentry' },
+    ],
   },
   {
     id: 3,
@@ -110,19 +126,19 @@ const projectList: Projects = [
     link: 'https://simple-nutrition.vercel.app/',
     repo: 'https://www.github.com/tj2904/simple-nutrition',
     rational:
-      'Keeping an eye on what your child eats is important, and as a new mother with everything else on her mind a friend wanted to be able to quickly check on which of the vital nutrients her daughter had consumed, or more importantly, not consumed that day so that she could adapt her meal plans accordingly. ',
+      'Keeping an eye on what your child eats is important, and as a new mother with everything else on her mind a friend wanted to be able to quickly check on which of the vital nutrients her daughter had consumed, or more importantly, not consumed that day so that she could adapt her meal plans accordingly.',
     stack: [
       { tech: 'NextJS' },
       { tech: 'TypeScript' },
       { tech: 'TailwindCSS' },
       {
         tech: 'PostgreSQL',
-        explanation: ' - Used for backend database',
+        explanation: ' - Backend database',
       },
       { tech: 'Prisma' },
       {
         tech: 'Spoonacular',
-        explanation: ' - Used for data provision',
+        explanation: ' - Data provision',
       },
     ],
     deployment: [{ tech: 'Vercel' }, { tech: 'Sentry' }],
@@ -163,7 +179,7 @@ const projectList: Projects = [
       { tech: 'Jupyter' },
       { tech: 'Pandas' },
       { tech: 'Numpy' },
-      { tech: 'SciKitLearn' },
+      { tech: 'Scikit-Learn' },
     ],
     deployment: [],
   },
@@ -186,7 +202,7 @@ const projectList: Projects = [
       { tech: 'Jupyter' },
       { tech: 'Pandas' },
       { tech: 'Numpy' },
-      { tech: 'SciKitLearn' },
+      { tech: 'Scikit-Learn' },
       { tech: 'GeoPandas' },
       { tech: 'Tableau' },
     ],

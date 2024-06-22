@@ -5,7 +5,7 @@ import '@/styles/tailwind.css'
 export const metadata: Metadata = {
   title: {
     template: 'Tim Jackson : %s',
-    default: 'The portfolio of Tim Jackson',
+    default: "Tim Jackson's Portfolio",
   },
   description: "A collection of Tim Jackson's work and projects.",
 }

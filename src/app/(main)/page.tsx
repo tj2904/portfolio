@@ -28,13 +28,15 @@ function ProjectEntry({ project: project }: { project: Project }) {
           />
           <p className="mt-1 text-base leading-7 text-slate-700">
             {project.image.length > 0 && (
-              <Image
-                src={`/assets/screenshots/${project.image}`}
-                alt={''} // Blank as it is purely decorative
-                height={250}
-                width={250}
-                className="mx-auto mb-4 rounded-md md:float-start md:mb-0 md:mr-4"
-              />
+              <Link href={`/${project.slug}`}>
+                <Image
+                  src={`/assets/screenshots/${project.image}`}
+                  alt={''} // Blank as it is purely decorative
+                  height={250}
+                  width={250}
+                  className="mx-auto mb-4 rounded-md md:float-start md:mb-0 md:mr-4"
+                />
+              </Link>
             )}
             {project.description}
           </p>
