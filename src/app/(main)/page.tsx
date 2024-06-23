@@ -13,7 +13,6 @@ export async function generateMetadata() {
     openGraph?: {
       title: string
       url: string
-      image: string
       description: string
     }
   } = {
@@ -21,7 +20,6 @@ export async function generateMetadata() {
     openGraph: {
       title: `Tim Jackson's Portfolio`,
       url: `https://tj2904.com/`,
-      image: `https://tj2904.com/assets/tjLogo.png`,
       description: `A collection of Tim's work and projects.`,
     },
   }

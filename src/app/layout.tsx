@@ -28,6 +28,10 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap"
         />
+        <meta
+          property="og:image"
+          content="https://tj2904.com/assets/tjLogo.png"
+        />
         <meta property="og:site_name" content="https://tj2904.com" />
       </head>
       <body className="flex min-h-full">
