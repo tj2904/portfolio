@@ -1,6 +1,7 @@
 import { type Metadata } from 'next'
-import { Analytics } from '@vercel/analytics/react'
 import '@/styles/tailwind.css'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   title: {
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body className="flex min-h-full">
         <div className="w-full">{children}</div>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
