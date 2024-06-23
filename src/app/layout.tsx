@@ -1,6 +1,7 @@
 import { type Metadata } from 'next'
-
 import '@/styles/tailwind.css'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   title: {
@@ -27,9 +28,16 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap"
         />
+        <meta
+          property="og:image"
+          content="https://tj2904.com/assets/tjLogo.png"
+        />
+        <meta property="og:site_name" content="tj2904.com" />
       </head>
       <body className="flex min-h-full">
         <div className="w-full">{children}</div>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
