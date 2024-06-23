@@ -116,7 +116,7 @@ export async function generateMetadata({
     title: `Projects - ${project.title} `,
     openGraph: {
       title: `Projects - ${project.title}`,
-      url: `https://tj2904.com/projects/${project.slug}`,
+      url: `https://tj2904.com/${project.slug}`,
     },
   }
 
