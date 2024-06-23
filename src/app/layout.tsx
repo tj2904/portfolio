@@ -32,7 +32,7 @@ export default function RootLayout({
           property="og:image"
           content="https://tj2904.com/assets/tjLogo.png"
         />
-        <meta property="og:site_name" content="https://tj2904.com" />
+        <meta property="og:site_name" content="tj2904.com" />
       </head>
       <body className="flex min-h-full">
         <div className="w-full">{children}</div>
