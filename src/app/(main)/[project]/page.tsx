@@ -111,7 +111,7 @@ export async function generateMetadata({
   let metadata: {
     title: string
     description?: string
-    openGraph?: { title: string; url: string }
+    openGraph?: { title?: string; url?: string; image?: string }
   } = {
     title: `Projects - ${project.title} `,
     openGraph: {
@@ -124,6 +124,10 @@ export async function generateMetadata({
     metadata = {
       ...metadata,
       description: `Details of Tim Jackson's ${project.title} project, including the technologies used and links to the live site and repository.`,
+      openGraph: {
+        ...metadata.openGraph,
+        image: `https://tj2904.com/assets/screenshots/${project.image}`,
+      },
     }
   } else if (project.type === 'report') {
     metadata = {

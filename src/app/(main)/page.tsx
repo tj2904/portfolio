@@ -16,7 +16,7 @@ export async function generateMetadata() {
     openGraph: {
       title: `Tim Jackson's Portfolio`,
       url: `https://tj2904.com/`,
-      description: `A collection of Tim Jackson's work and projects.`,
+      description: `A collection of Tim's work and projects.`,
     },
   }
 
