@@ -6,6 +6,23 @@ import { FormattedDate } from '@/components/FormattedDate'
 import projectList, { Project } from '@/lib/projects'
 import { VscChecklist, VscVmRunning } from 'react-icons/vsc'
 
+export async function generateMetadata() {
+  let metadata: {
+    title: string
+    description?: string
+    openGraph?: { title: string; url: string; description: string }
+  } = {
+    title: `Tim Jackson's Portfolio`,
+    openGraph: {
+      title: `Tim Jackson's Portfolio`,
+      url: `https://tj2904.com/`,
+      description: `A collection of Tim Jackson's work and projects.`,
+    },
+  }
+
+  return metadata
+}
+
 function ProjectEntry({ project: project }: { project: Project }) {
   let date = new Date(project.published)
 
