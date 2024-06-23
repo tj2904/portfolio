@@ -108,8 +108,16 @@ export async function generateMetadata({
 }) {
   let project = await getProject(params.project)
 
-  let metadata: { title: string; description?: string } = {
+  let metadata: {
+    title: string
+    description?: string
+    openGraph?: { title: string; url: string }
+  } = {
     title: `Projects - ${project.title} `,
+    openGraph: {
+      title: `Projects - ${project.title}`,
+      url: `https://tj2904.com/projects/${project.slug}`,
+    },
   }
 
   if (project.type === 'software') {
@@ -151,7 +159,7 @@ export default async function Project({
                 />
               </div>
             </div>
-            <p className=" mt-3 text-lg font-medium leading-8 text-slate-700">
+            <p className="mt-3 text-lg font-medium leading-8 text-slate-700">
               {project.description}
             </p>
           </header>
@@ -264,7 +272,7 @@ export default async function Project({
                 />
               </div>
             </div>
-            <p className=" mt-3 text-lg font-medium leading-8 text-slate-700">
+            <p className="mt-3 text-lg font-medium leading-8 text-slate-700">
               {project.description}
             </p>
           </header>
