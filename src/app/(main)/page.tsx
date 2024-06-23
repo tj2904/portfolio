@@ -10,12 +10,18 @@ export async function generateMetadata() {
   let metadata: {
     title: string
     description?: string
-    openGraph?: { title: string; url: string; description: string }
+    openGraph?: {
+      title: string
+      url: string
+      image: string
+      description: string
+    }
   } = {
     title: `Tim Jackson's Portfolio`,
     openGraph: {
       title: `Tim Jackson's Portfolio`,
       url: `https://tj2904.com/`,
+      image: `https://tj2904.com/assets/tjLogo.png`,
       description: `A collection of Tim's work and projects.`,
     },
   }
