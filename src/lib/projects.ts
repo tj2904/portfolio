@@ -27,7 +27,7 @@ const projectList: Projects = [
   {
     id: 1,
     type: 'software',
-    sortOrder: 1,
+    sortOrder: 2,
     published: '2023-05-01',
     slug: 'positive-press',
     title: 'Positive Press (Frontend)',
@@ -53,7 +53,7 @@ const projectList: Projects = [
   {
     id: 2,
     type: 'software',
-    sortOrder: 2,
+    sortOrder: 1,
     published: '2023-05-01',
     slug: 'pp-api',
     title: 'Positive Press (Backend & API)',
