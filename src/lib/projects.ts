@@ -58,7 +58,7 @@ const projectList: Projects = [
     slug: 'pp-api',
     title: 'Positive Press (Backend & API)',
     description:
-      'My BSc Final Year Project. I created a Python API that uses Natural Language Processing (NLP) to analyse news headlines and provide a curated feed of news ranked by positivity. This is served by the backend app using FastAPI, and stored in a PostgreSQL database. The documentation of the endpoints found at the link below is provided using Swagger. There is a consuming frontend app, built in NextJS.',
+      'My BSc Final Year Project. I created a Python API that uses Natural Language Processing (NLP) to analyse news headlines and provide a curated feed of news ranked by positivity. This is served by the backend app using FastAPI, and stored in a NoSQL database. The documentation of the endpoints found at the link below is provided using Swagger. There is a consuming frontend app, built in NextJS.',
     image: 'pp-api.png',
     link: 'https://positive-press-api.herokuapp.com/docs/',
     repo: 'https://www.github.com/tj2904/pp-api',
@@ -67,7 +67,7 @@ const projectList: Projects = [
     stack: [
       { tech: 'Python' },
       { tech: 'Pandas' },
-      { tech: 'PostgreSQL' },
+      { tech: 'NoSQL' },
       { tech: 'FastAPI' },
       { tech: 'Pydantic' },
       { tech: 'Swagger', explanation: ' - API documentation' },
@@ -76,7 +76,7 @@ const projectList: Projects = [
     deployment: [
       {
         tech: 'Heroku',
-        explanation: ' - Hosts PostgreSQL & Python app',
+        explanation: ' - Hosts Python app',
       },
       { tech: 'Sentry', explanation: ' - Error Tracking' },
     ],
