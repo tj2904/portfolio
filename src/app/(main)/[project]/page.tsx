@@ -50,6 +50,7 @@ import {
 } from 'react-icons/si'
 import { VscVmRunning } from 'react-icons/vsc'
 import { ImFilePdf } from 'react-icons/im'
+import { GoDatabase } from "react-icons/go"
 
 // Map tech to icon
 const techToIcon: { [key: string]: JSX.Element } = {
@@ -72,6 +73,7 @@ const techToIcon: { [key: string]: JSX.Element } = {
   MicrosoftSQL: <SiMicrosoftsqlserver />,
   Netlify: <SiNetlify />,
   NextJS: <SiNextdotjs />,
+  NoSQL: <GoDatabase />,
   Numpy: <SiNumpy />,
   Pandas: <SiPandas />,
   Ploty: <SiPlotly />,
