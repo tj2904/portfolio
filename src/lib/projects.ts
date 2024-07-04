@@ -63,7 +63,7 @@ const projectList: Projects = [
     link: 'https://positive-press-api.herokuapp.com/docs/',
     repo: 'https://www.github.com/tj2904/pp-api',
     rational:
-      'There is a growing body of evidence that negative news can have a detrimental effect on mental health. This site was created to provide a curated feed of news that is ranked by positivity. The project uses Natural Language Processing (NLP) to analyse news headlines and provide a curated feed of news ranked by positivity. The app uses a FastAPI backend to provide the API for the frontend to consume. The project also uses a PostgreSQL database to store the news headlines and their associated sentiment scores. Sentry is used for error tracking and Swagger for API documentation. The frontend is built using NextJS and TailwindCSS and the project is deployed on Vercel.',
+      'There is a growing body of evidence that negative news can have a detrimental effect on mental health. This site was created to provide a curated feed of news that is ranked by positivity. The project uses Natural Language Processing (NLP) to analyse news headlines and provide a curated feed of news ranked by positivity. The app uses a FastAPI backend to provide the API for the frontend to consume. The project also uses a NoSQL database to store the news headlines and their associated sentiment scores. Sentry is used for error tracking and Swagger for API documentation. The frontend is built using NextJS and TailwindCSS and the project is deployed on Vercel.',
     stack: [
       { tech: 'Python' },
       { tech: 'Pandas' },
