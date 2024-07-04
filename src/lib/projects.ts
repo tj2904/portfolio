@@ -91,7 +91,7 @@ const projectList: Projects = [
     description:
       'Quickly convert the units of measurement from one to another, or take a recipe from a website and convert the units of measurement in it. Built using Flask and React.',
     image: 'kitchen-helper.png',
-    link: 'https://kitchen-helper.onrender.app/',
+    link: 'https://kitchen-helper.onrender.com/',
     repo: 'https://www.github.com/tj2904/kitchen-helper',
     rational:
       'When using cookbooks from other countries the units of measurement can be unfamiliar. This site was created to help people who struggle to convert the units of measurement in a recipe from a cookbook. The app will also take the url of a recipe online and provide measurement conversions for the ingredients in it.',
