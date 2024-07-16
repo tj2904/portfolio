@@ -3,9 +3,7 @@ import { NextRequest } from 'next/server'
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl
-  const title = searchParams.get('title')
-  const ogTitle = decodeURIComponent(title ?? '')
-  const postTitle = ogTitle ?? 'Tim Jackson\nPortfolio'
+  const postTitle = searchParams.get('title') ?? 'Tim Jackson\nPortfolio'
 
   return new ImageResponse(
     (
