@@ -50,7 +50,7 @@ import {
 } from 'react-icons/si'
 import { VscVmRunning } from 'react-icons/vsc'
 import { ImFilePdf } from 'react-icons/im'
-import { GoDatabase } from "react-icons/go"
+import { GoDatabase } from 'react-icons/go'
 
 // Map tech to icon
 const techToIcon: { [key: string]: JSX.Element } = {
@@ -109,16 +109,21 @@ export async function generateMetadata({
   params: { project: string }
 }) {
   let project = await getProject(params.project)
-
+  let ogImage = `https://tj2904.com/api/og?title=${project.title}`
   let metadata: {
     title: string
     description?: string
-    openGraph?: { title?: string; url?: string; image?: string }
+    openGraph?: { title?: string; url?: string; images?: [url: Object] }
   } = {
     title: `Projects - ${project.title} `,
     openGraph: {
       title: `Projects - ${project.title}`,
       url: `https://tj2904.com/${project.slug}`,
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
     },
   }
 
@@ -128,13 +133,15 @@ export async function generateMetadata({
       description: `Details of Tim Jackson's ${project.title} project, including the technologies used and links to the live site and repository.`,
       openGraph: {
         ...metadata.openGraph,
-        image: `https://tj2904.com/assets/screenshots/${project.image}`,
       },
     }
   } else if (project.type === 'report') {
     metadata = {
       ...metadata,
       description: `Details of Tim Jackson's ${project.title} report, including the abstract and link to the full text as PDF.`,
+      openGraph: {
+        ...metadata.openGraph,
+      },
     }
   }
 

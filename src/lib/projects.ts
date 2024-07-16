@@ -56,7 +56,7 @@ const projectList: Projects = [
     sortOrder: 1,
     published: '2023-05-01',
     slug: 'pp-api',
-    title: 'Positive Press (Backend & API)',
+    title: 'Positive Press (Backend and API)',
     description:
       'My BSc Final Year Project. I created a Python API that uses Natural Language Processing (NLP) to analyse news headlines and provide a curated feed of news ranked by positivity. This is served by the backend app using FastAPI, and stored in a NoSQL database. The documentation of the endpoints found at the link below is provided using Swagger. There is a consuming frontend app, built in NextJS.',
     image: 'pp-api.png',
