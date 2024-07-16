@@ -14,6 +14,7 @@ export async function generateMetadata() {
       title: string
       url: string
       description: string
+      images?: [url: Object]
     }
   } = {
     title: `Tim Jackson's Portfolio`,
@@ -21,6 +22,11 @@ export async function generateMetadata() {
       title: `Tim Jackson's Portfolio`,
       url: `https://tj2904.com/`,
       description: `A collection of Tim's work and projects.`,
+      images: [
+        {
+          url: `https://tj2904.com/api/og`,
+        },
+      ],
     },
   }
 
