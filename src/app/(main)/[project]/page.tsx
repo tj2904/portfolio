@@ -109,8 +109,8 @@ export async function generateMetadata({
   params: { project: string }
 }) {
   let project = await getProject(params.project)
-  let ogImage = `https://tj2904.com/api/og?title=${project.title}`
-
+  let ogTitle = encodeURIComponent(project.title)
+  let ogImage = `https://tj2904.com/api/og?title=${ogTitle}`
   let metadata: {
     title: string
     description?: string
