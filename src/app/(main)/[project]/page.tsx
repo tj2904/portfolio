@@ -109,7 +109,7 @@ export async function generateMetadata({
   params: { project: string }
 }) {
   let project = await getProject(params.project)
-  let ogImage = `https://tj2904.com/api/og/${project.title}`
+  let ogImage = `https://tj2904.com/api/og?title=${project.title}`
 
   let metadata: {
     title: string
