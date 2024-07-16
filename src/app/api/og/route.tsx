@@ -24,7 +24,7 @@ export async function GET(req: NextRequest) {
             marginRight: 190,
             display: 'flex',
             fontSize: 130,
-            fontFamily: 'Satoshi, sans-serif',
+            fontFamily: 'satoshi, sans-serif',
             letterSpacing: '-0.05em',
             fontStyle: 'normal',
             fontWeight: 900,
