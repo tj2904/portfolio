@@ -24,11 +24,10 @@ export function AboutSection(props: React.ComponentPropsWithoutRef<'section'>) {
         )}
       >
         This site collates projects created by Tim Jackson. Some have been
-        produced for academic purposes, others for fun, personal learning, to
-        meet a friend&apos;s requirement, or for commercial engagements. For
-        most projects you&apos;ll find a link to GitHub for the sourcecode and a
-        link to an active version of the project. However, this isn&apos;t
-        possible for commercial projects.
+        produced for academic purposes, others for fun, personal learning or to
+        meet a friend&apos;s requirement. For most projects you&apos;ll find a 
+        link to GitHub for the sourcecode and a link to an active version of 
+        the project.
       </p>
       {!isExpanded && (
         <button
