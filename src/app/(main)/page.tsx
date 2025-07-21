@@ -22,11 +22,7 @@ export async function generateMetadata() {
       title: `Tim Jackson's Portfolio`,
       url: `https://tj2904.com/`,
       description: `A collection of Tim's work and projects.`,
-      images: [
-        {
-          url: `https://tj2904.com/api/og`,
-        },
-      ],
+      images: [{ url: `https://tj2904.com/api/og` }],
     },
   }
 
@@ -114,7 +110,10 @@ export default async function Home() {
       </Container>
       <div className="divide-y divide-slate-100 sm:mt-4 lg:mt-8 lg:border-t lg:border-slate-100">
         {projects.map((project) => (
-          <ProjectEntry key={project.id} project={project} />
+          <ProjectEntry
+            key={`${project.id}-${project.slug}`}
+            project={project}
+          />
         ))}
       </div>
     </div>
