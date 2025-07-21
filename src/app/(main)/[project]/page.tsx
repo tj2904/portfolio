@@ -18,6 +18,7 @@ import {
   SiFastapi,
   SiFirebase,
   SiFlask,
+  SiGeopandas,
   SiGithub,
   SiGithubactions,
   SiHeroku,
@@ -28,6 +29,7 @@ import {
   SiNextdotjs,
   SiNumpy,
   SiPandas,
+  SiPlotly,
   SiPostgresql,
   SiPrisma,
   SiPydantic,
@@ -35,6 +37,7 @@ import {
   SiPython,
   SiReact,
   SiRender,
+  SiScikitlearn,
   SiSentry,
   SiSupabase,
   SiSwagger,
@@ -60,7 +63,7 @@ const techToIcon: { [key: string]: React.ReactNode } = {
   FastAPI: <SiFastapi />,
   FireBase: <SiFirebase />,
   Flask: <SiFlask />,
-  // GeoPandas: <SiGeopandas />, // Removed because SiGeopandas does not exist
+  GeoPandas: <SiGeopandas />, // Removed because SiGeopandas does not exist
   'GitHub Actions': <SiGithubactions />,
   Heroku: <SiHeroku />,
   JavaScript: <SiJavascript />,
@@ -72,7 +75,7 @@ const techToIcon: { [key: string]: React.ReactNode } = {
   NoSQL: <GoDatabase />,
   Numpy: <SiNumpy />,
   Pandas: <SiPandas />,
-  // Ploty: <SiPlotly />, // Removed because SiPlotly does not exist
+  Ploty: <SiPlotly />,
   PostgreSQL: <SiPostgresql />,
   // PowerBI: <SiPowerbi />, // Removed because SiPowerbi does not exist
   Prisma: <SiPrisma />,
@@ -81,7 +84,7 @@ const techToIcon: { [key: string]: React.ReactNode } = {
   Python: <SiPython />,
   React: <SiReact />,
   Render: <SiRender />,
-  // 'Scikit-Learn': <SiScikitlearn />, // Removed because SiScikitlearn does not exist
+  'Scikit-Learn': <SiScikitlearn />,
   Sentry: <SiSentry />,
   SupaBase: <SiSupabase />,
   Swagger: <SiSwagger />,
