@@ -1,15 +1,15 @@
+import React from 'react'
 import { cache } from 'react'
 import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Container } from '@/components/Container'
 import { FormattedDate } from '@/components/FormattedDate'
 import projectList from '@/lib/projects'
 import type { Project } from '@/lib/projects'
-import { TbCode } from 'react-icons/tb'
 import {
   SiAnaconda,
-  SiAmazonaws,
   SiAxios,
   SiChartdotjs,
   SiCircleci,
@@ -18,28 +18,23 @@ import {
   SiFastapi,
   SiFirebase,
   SiFlask,
-  SiGeopandas,
   SiGithub,
   SiGithubactions,
   SiHeroku,
   SiJavascript,
   SiJest,
   SiJupyter,
-  SiMicrosoftsqlserver,
   SiNetlify,
   SiNextdotjs,
   SiNumpy,
   SiPandas,
-  SiPlotly,
   SiPostgresql,
-  SiPowerbi,
   SiPrisma,
   SiPydantic,
   SiPytest,
   SiPython,
   SiReact,
   SiRender,
-  SiScikitlearn,
   SiSentry,
   SiSupabase,
   SiSwagger,
@@ -48,14 +43,15 @@ import {
   SiTypescript,
   SiVercel,
 } from 'react-icons/si'
+import { TbCode } from 'react-icons/tb'
 import { VscVmRunning } from 'react-icons/vsc'
 import { ImFilePdf } from 'react-icons/im'
 import { GoDatabase } from 'react-icons/go'
 
 // Map tech to icon
-const techToIcon: { [key: string]: JSX.Element } = {
+const techToIcon: { [key: string]: React.ReactNode } = {
   Anaconda: <SiAnaconda />,
-  AWS: <SiAmazonaws />,
+  // AWS: <SiAmazonaws />, // Removed because SiAmazonaws does not exist
   Axios: <SiAxios />,
   ChartJS: <SiChartdotjs />,
   CircleCI: <SiCircleci />,
@@ -64,28 +60,28 @@ const techToIcon: { [key: string]: JSX.Element } = {
   FastAPI: <SiFastapi />,
   FireBase: <SiFirebase />,
   Flask: <SiFlask />,
-  GeoPandas: <SiGeopandas />,
+  // GeoPandas: <SiGeopandas />, // Removed because SiGeopandas does not exist
   'GitHub Actions': <SiGithubactions />,
   Heroku: <SiHeroku />,
   JavaScript: <SiJavascript />,
   Jest: <SiJest />,
   Jupyter: <SiJupyter />,
-  MicrosoftSQL: <SiMicrosoftsqlserver />,
+  // MicrosoftSQL: <SiMicrosoftsqlserver />, // Removed because SiMicrosoftsqlserver does not exist
   Netlify: <SiNetlify />,
   NextJS: <SiNextdotjs />,
   NoSQL: <GoDatabase />,
   Numpy: <SiNumpy />,
   Pandas: <SiPandas />,
-  Ploty: <SiPlotly />,
+  // Ploty: <SiPlotly />, // Removed because SiPlotly does not exist
   PostgreSQL: <SiPostgresql />,
-  PowerBI: <SiPowerbi />,
+  // PowerBI: <SiPowerbi />, // Removed because SiPowerbi does not exist
   Prisma: <SiPrisma />,
   Pydantic: <SiPydantic />,
   Pytest: <SiPytest />,
   Python: <SiPython />,
   React: <SiReact />,
   Render: <SiRender />,
-  'Scikit-Learn': <SiScikitlearn />,
+  // 'Scikit-Learn': <SiScikitlearn />, // Removed because SiScikitlearn does not exist
   Sentry: <SiSentry />,
   SupaBase: <SiSupabase />,
   Swagger: <SiSwagger />,
@@ -103,18 +99,16 @@ const getProject = cache(async (slug: string) => {
   return project
 })
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { project: string }
-}) {
-  let project = await getProject(params.project)
-  let ogImage = `https://tj2904.com/api/og?title=${project.title}`
-  let metadata: {
-    title: string
-    description?: string
-    openGraph?: { title?: string; url?: string; images?: [url: Object] }
-  } = {
+// ...existing code...
+export async function generateMetadata(
+  input:
+    | { params: { project: string } }
+    | Promise<{ params: { project: string } }>,
+): Promise<Metadata> {
+  const { params } = await Promise.resolve(input)
+  const project = await getProject(params.project)
+  const ogImage = `https://tj2904.com/api/og?title=${project.title}`
+  let metadata: Metadata = {
     title: `Projects - ${project.title} `,
     openGraph: {
       title: `Projects - ${project.title}`,
