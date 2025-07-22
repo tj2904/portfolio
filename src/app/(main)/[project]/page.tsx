@@ -63,7 +63,7 @@ const techToIcon: { [key: string]: React.ReactNode } = {
   FastAPI: <SiFastapi />,
   FireBase: <SiFirebase />,
   Flask: <SiFlask />,
-  GeoPandas: <SiGeopandas />, // Removed because SiGeopandas does not exist
+  GeoPandas: <SiGeopandas />,
   'GitHub Actions': <SiGithubactions />,
   Heroku: <SiHeroku />,
   JavaScript: <SiJavascript />,
@@ -103,12 +103,10 @@ const getProject = cache(async (slug: string) => {
 })
 
 // ...existing code...
-export async function generateMetadata(
-  input:
-    | { params: { project: string } }
-    | Promise<{ params: { project: string } }>,
-): Promise<Metadata> {
-  const { params } = await Promise.resolve(input)
+export async function generateMetadata(input: {
+  params: { project: string }
+}): Promise<Metadata> {
+  const { params } = input
   const project = await getProject(params.project)
   const ogImage = `https://tj2904.com/api/og?title=${project.title}`
   let metadata: Metadata = {
