@@ -1,15 +1,15 @@
+import React from 'react'
 import { cache } from 'react'
 import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Container } from '@/components/Container'
 import { FormattedDate } from '@/components/FormattedDate'
 import projectList from '@/lib/projects'
 import type { Project } from '@/lib/projects'
-import { TbCode } from 'react-icons/tb'
 import {
   SiAnaconda,
-  SiAmazonaws,
   SiAxios,
   SiChartdotjs,
   SiCircleci,
@@ -25,14 +25,12 @@ import {
   SiJavascript,
   SiJest,
   SiJupyter,
-  SiMicrosoftsqlserver,
   SiNetlify,
   SiNextdotjs,
   SiNumpy,
   SiPandas,
   SiPlotly,
   SiPostgresql,
-  SiPowerbi,
   SiPrisma,
   SiPydantic,
   SiPytest,
@@ -48,14 +46,15 @@ import {
   SiTypescript,
   SiVercel,
 } from 'react-icons/si'
+import { TbCode } from 'react-icons/tb'
 import { VscVmRunning } from 'react-icons/vsc'
 import { ImFilePdf } from 'react-icons/im'
 import { GoDatabase } from 'react-icons/go'
 
 // Map tech to icon
-const techToIcon: { [key: string]: JSX.Element } = {
+const techToIcon: { [key: string]: React.ReactNode } = {
   Anaconda: <SiAnaconda />,
-  AWS: <SiAmazonaws />,
+  // AWS: <SiAmazonaws />, // Removed because SiAmazonaws does not exist
   Axios: <SiAxios />,
   ChartJS: <SiChartdotjs />,
   CircleCI: <SiCircleci />,
@@ -70,7 +69,7 @@ const techToIcon: { [key: string]: JSX.Element } = {
   JavaScript: <SiJavascript />,
   Jest: <SiJest />,
   Jupyter: <SiJupyter />,
-  MicrosoftSQL: <SiMicrosoftsqlserver />,
+  // MicrosoftSQL: <SiMicrosoftsqlserver />, // Removed because SiMicrosoftsqlserver does not exist
   Netlify: <SiNetlify />,
   NextJS: <SiNextdotjs />,
   NoSQL: <GoDatabase />,
@@ -78,7 +77,7 @@ const techToIcon: { [key: string]: JSX.Element } = {
   Pandas: <SiPandas />,
   Ploty: <SiPlotly />,
   PostgreSQL: <SiPostgresql />,
-  PowerBI: <SiPowerbi />,
+  // PowerBI: <SiPowerbi />, // Removed because SiPowerbi does not exist
   Prisma: <SiPrisma />,
   Pydantic: <SiPydantic />,
   Pytest: <SiPytest />,
@@ -103,27 +102,19 @@ const getProject = cache(async (slug: string) => {
   return project
 })
 
-export async function generateMetadata({
-  params,
-}: {
+// ...existing code...
+export async function generateMetadata(input: {
   params: { project: string }
-}) {
-  let project = await getProject(params.project)
-  let ogImage = `https://tj2904.com/api/og?title=${project.title}`
-  let metadata: {
-    title: string
-    description?: string
-    openGraph?: { title?: string; url?: string; images?: [url: Object] }
-  } = {
+}): Promise<Metadata> {
+  const { params } = input
+  const project = await getProject(params.project)
+  const ogImage = `https://tj2904.com/api/og?title=${project.title}`
+  let metadata: Metadata = {
     title: `Projects - ${project.title} `,
     openGraph: {
       title: `Projects - ${project.title}`,
       url: `https://tj2904.com/${project.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
+      images: [{ url: ogImage }],
     },
   }
 
@@ -131,17 +122,13 @@ export async function generateMetadata({
     metadata = {
       ...metadata,
       description: `Details of Tim Jackson's ${project.title} project, including the technologies used and links to the live site and repository.`,
-      openGraph: {
-        ...metadata.openGraph,
-      },
+      openGraph: { ...metadata.openGraph },
     }
   } else if (project.type === 'report') {
     metadata = {
       ...metadata,
       description: `Details of Tim Jackson's ${project.title} report, including the abstract and link to the full text as PDF.`,
-      openGraph: {
-        ...metadata.openGraph,
-      },
+      openGraph: { ...metadata.openGraph },
     }
   }
 
