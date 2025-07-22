@@ -116,11 +116,7 @@ export async function generateMetadata(
     openGraph: {
       title: `Projects - ${project.title}`,
       url: `https://tj2904.com/${project.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
+      images: [{ url: ogImage }],
     },
   }
 
@@ -128,17 +124,13 @@ export async function generateMetadata(
     metadata = {
       ...metadata,
       description: `Details of Tim Jackson's ${project.title} project, including the technologies used and links to the live site and repository.`,
-      openGraph: {
-        ...metadata.openGraph,
-      },
+      openGraph: { ...metadata.openGraph },
     }
   } else if (project.type === 'report') {
     metadata = {
       ...metadata,
       description: `Details of Tim Jackson's ${project.title} report, including the abstract and link to the full text as PDF.`,
-      openGraph: {
-        ...metadata.openGraph,
-      },
+      openGraph: { ...metadata.openGraph },
     }
   }
 
