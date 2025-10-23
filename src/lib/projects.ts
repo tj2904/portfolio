@@ -214,7 +214,7 @@ const projectList: Projects = [
     sortOrder: 2.5,
     published: '2025-10-23',
     slug: 'lfb-hounslow-dashboard',
-    title: 'London Fire Brigade Hounslow Call-out Dashboard',
+    title: 'London Fire Brigade Hounslow Callout Dashboard',
     description:
       'A Streamlit dashboard app for visualizing London Fire Brigade callout data for the Hounslow area.',
     image: 'lfb-hounslow-dashboard.png',
