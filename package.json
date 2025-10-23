@@ -19,7 +19,7 @@
     "@vercel/speed-insights": "^1.2.0",
     "autoprefixer": "^10.4.21",
     "clsx": "^2.1.1",
-    "next": "14.2.30",
+    "next": "14.2.33",
     "react": "18.2.0",
     "react-aria": "^3.41.1",
     "react-dom": "18.2.0",
