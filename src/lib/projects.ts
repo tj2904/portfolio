@@ -208,6 +208,28 @@ const projectList: Projects = [
     ],
     deployment: [],
   },
+  {
+    id: 7,
+    type: 'software',
+    sortOrder: 2.5,
+    published: '2025-10-23',
+    slug: 'lfb-hounslow-dashboard',
+    title: 'London Fire Brigade Hounslow Call-out Dashboard',
+    description:
+      'A Streamlit dashboard app for visualizing London Fire Brigade callout data for the Hounslow area.',
+    image: 'lfb-hounslow-dashboard.png',
+    link: 'https://lfb-hounslow.streamlit.app/',
+    repo: 'https://github.com/tj2904/lfb-hounslow',
+    rational: '',
+    stack: [
+      { tech: 'Python' },
+      { tech: 'Streamlit' },
+      { tech: 'Pandas' },
+      { tech: 'Plotly' },
+      { tech: 'Numpy' },
+    ],
+    deployment: [],
+  },
   // {
   //   id: ,
   //   type: '',
