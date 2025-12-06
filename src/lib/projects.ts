@@ -82,7 +82,7 @@ const projectList: Projects = [
     ],
   },
   {
-    id: 2,
+    id: 8,
     type: 'software',
     sortOrder: 20,
     published: '2023-01-22',
