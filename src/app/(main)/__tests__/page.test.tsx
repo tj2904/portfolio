@@ -18,7 +18,7 @@ jest.mock('@/components/FormattedDate', () => ({
 
 // Mock next/link
 jest.mock('next/link', () => {
-  return ({
+  const MockLink = ({
     children,
     href,
     className,
@@ -35,6 +35,8 @@ jest.mock('next/link', () => {
       </a>
     )
   }
+  MockLink.displayName = 'Link'
+  return MockLink
 })
 
 // Mock next/image
