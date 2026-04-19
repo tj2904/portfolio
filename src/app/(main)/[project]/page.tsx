@@ -21,6 +21,7 @@ import {
   SiGeopandas,
   SiGithub,
   SiGithubactions,
+  SiGooglecloud,
   SiHeroku,
   SiJavascript,
   SiJest,
@@ -66,6 +67,7 @@ const techToIcon: { [key: string]: React.ReactNode } = {
   Flask: <SiFlask />,
   GeoPandas: <SiGeopandas />,
   'GitHub Actions': <SiGithubactions />,
+  'Google Cloud Platform': <SiGooglecloud />,
   Heroku: <SiHeroku />,
   JavaScript: <SiJavascript />,
   Jest: <SiJest />,
@@ -220,38 +222,40 @@ export default async function Project({
                   ))}
                 </>
               )}
-              <h2>Links:</h2>
-              {project.link.length > 0 && (
-                <div className="flex items-center">
-                  <span className="mr-2">
-                    <VscVmRunning className="inline-block" />
-                  </span>
-                  <span>
-                    <Link
-                      href={project.link}
-                      className="text-pink-500"
-                      target="_blank"
-                    >
-                      Live Site
-                    </Link>
-                  </span>
-                </div>
-              )}
+              {project.link.length > 0 && project.repo.length > 0 && (
+                <>
+                  <h2>Links:</h2>
+                  <div className="flex items-center">
+                    <span className="mr-2">
+                      <VscVmRunning className="inline-block" />
+                    </span>
+                    <span>
+                      <Link
+                        href={project.link}
+                        className="text-pink-500"
+                        target="_blank"
+                      >
+                        Live Site
+                      </Link>
+                    </span>
+                  </div>
 
-              <div className="flex items-center">
-                <span className="mr-2">
-                  <SiGithub className="inline-block" />
-                </span>
-                <span>
-                  <Link
-                    href={project.repo}
-                    className="text-pink-500"
-                    target="_blank"
-                  >
-                    Project Repo
-                  </Link>
-                </span>
-              </div>
+                  <div className="flex items-center">
+                    <span className="mr-2">
+                      <SiGithub className="inline-block" />
+                    </span>
+                    <span>
+                      <Link
+                        href={project.repo}
+                        className="text-pink-500"
+                        target="_blank"
+                      >
+                        Project Repo
+                      </Link>
+                    </span>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </Container>
