@@ -162,6 +162,16 @@ describe('Home Page', () => {
     })
   })
 
+  it('details links resolve to each project slug', async () => {
+    const HomeResolved = await Home()
+    render(HomeResolved)
+
+    projectList.forEach((project) => {
+      const detailsLink = screen.getByLabelText(`Details for project ${project.title}`)
+      expect(detailsLink).toHaveAttribute('href', `/${project.slug}`)
+    })
+  })
+
   it('has proper heading hierarchy', async () => {
     const HomeResolved = await Home()
     render(HomeResolved)

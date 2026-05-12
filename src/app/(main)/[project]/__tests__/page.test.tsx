@@ -238,6 +238,21 @@ describe('Project Detail Page', () => {
 
       expect(metadata.title).toContain(reportProject.title)
     })
+
+    it('calls notFound for metadata with invalid project slug', async () => {
+      const mockNotFound = notFound as unknown as jest.Mock
+      mockNotFound.mockImplementation(() => {
+        throw new Error('Not Found')
+      })
+
+      await expect(
+        generateMetadata({
+          params: Promise.resolve({ project: 'non-existent-slug' }),
+        }),
+      ).rejects.toThrow('Not Found')
+
+      expect(mockNotFound).toHaveBeenCalled()
+    })
   })
 
   describe('Layout and Structure', () => {
