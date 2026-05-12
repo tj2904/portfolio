@@ -11,3 +11,22 @@ Collected here are things I've built over the last few years, some for fun, some
 - Typescript
 - Tailwind
 - Vercel
+
+### Useful commands
+
+```bash
+# install dependencies
+npm ci
+
+# run local dev server
+npm run dev
+
+# run validations
+npm run lint
+npm run test
+npm run build
+
+# optional test helpers
+npm run test:watch
+npm run test:coverage
+```
