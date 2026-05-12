@@ -121,6 +121,16 @@ describe('Project Detail Page', () => {
     jest.clearAllMocks()
   })
 
+  it('renders for valid slug when params are provided as a Promise', async () => {
+    const project = projectList[0]
+    const result = await Project({
+      params: Promise.resolve({ project: project.slug }),
+    })
+
+    expect(result).toBeDefined()
+    expect(notFound).not.toHaveBeenCalled()
+  })
+
   describe('Software Projects', () => {
     it('renders software project details', async () => {
       const softwareProject = projectList.find((p) => p.type === 'software')
@@ -129,7 +139,7 @@ describe('Project Detail Page', () => {
       }
 
       const ProjectResolved = await Project({
-        params: { project: softwareProject.slug },
+        params: Promise.resolve({ project: softwareProject.slug }),
       })
       render(ProjectResolved)
 
@@ -142,7 +152,7 @@ describe('Project Detail Page', () => {
       if (!softwareProject) return
 
       const ProjectResolved = await Project({
-        params: { project: softwareProject.slug },
+        params: Promise.resolve({ project: softwareProject.slug }),
       })
       render(ProjectResolved)
 
@@ -154,7 +164,7 @@ describe('Project Detail Page', () => {
       if (!softwareProject) return
 
       const ProjectResolved = await Project({
-        params: { project: softwareProject.slug },
+        params: Promise.resolve({ project: softwareProject.slug }),
       })
       render(ProjectResolved)
 
@@ -166,7 +176,7 @@ describe('Project Detail Page', () => {
       if (!softwareProject) return
 
       const ProjectResolved = await Project({
-        params: { project: softwareProject.slug },
+        params: Promise.resolve({ project: softwareProject.slug }),
       })
       render(ProjectResolved)
 
@@ -183,7 +193,7 @@ describe('Project Detail Page', () => {
       }
 
       const ProjectResolved = await Project({
-        params: { project: reportProject.slug },
+        params: Promise.resolve({ project: reportProject.slug }),
       })
       render(ProjectResolved)
 
@@ -199,7 +209,7 @@ describe('Project Detail Page', () => {
       })
 
       await expect(
-        Project({ params: { project: 'non-existent-slug' } }),
+        Project({ params: Promise.resolve({ project: 'non-existent-slug' }) }),
       ).rejects.toThrow('Not Found')
 
       expect(mockNotFound).toHaveBeenCalled()
@@ -212,7 +222,7 @@ describe('Project Detail Page', () => {
       if (!softwareProject) return
 
       const metadata = await generateMetadata({
-        params: { project: softwareProject.slug },
+        params: Promise.resolve({ project: softwareProject.slug }),
       })
 
       expect(metadata.title).toContain(softwareProject.title)
@@ -223,7 +233,7 @@ describe('Project Detail Page', () => {
       if (!reportProject) return
 
       const metadata = await generateMetadata({
-        params: { project: reportProject.slug },
+        params: Promise.resolve({ project: reportProject.slug }),
       })
 
       expect(metadata.title).toContain(reportProject.title)
@@ -234,7 +244,7 @@ describe('Project Detail Page', () => {
     it('renders article element', async () => {
       const project = projectList[0]
       const ProjectResolved = await Project({
-        params: { project: project.slug },
+        params: Promise.resolve({ project: project.slug }),
       })
       const { container } = render(ProjectResolved)
 
@@ -245,7 +255,7 @@ describe('Project Detail Page', () => {
     it('displays project publish date', async () => {
       const project = projectList[0]
       const ProjectResolved = await Project({
-        params: { project: project.slug },
+        params: Promise.resolve({ project: project.slug }),
       })
       render(ProjectResolved)
 

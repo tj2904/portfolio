@@ -108,10 +108,11 @@ const getProject = cache(async (slug: string) => {
 
 // ...existing code...
 export async function generateMetadata(input: {
-  params: { project: string }
+  params: Promise<{ project: string }>
 }): Promise<Metadata> {
   const { params } = input
-  const project = await getProject(params.project)
+  const { project: projectSlug } = await params
+  const project = await getProject(projectSlug)
   const ogImage = `https://tj2904.com/api/og?title=${project.title}`
   let metadata: Metadata = {
     title: `Projects - ${project.title} `,
@@ -142,9 +143,10 @@ export async function generateMetadata(input: {
 export default async function Project({
   params,
 }: {
-  params: { project: string }
+  params: Promise<{ project: string }>
 }) {
-  let project: Project = await getProject(params.project)
+  const { project: projectSlug } = await params
+  let project: Project = await getProject(projectSlug)
   let date = new Date(project.published)
 
   if (project.type === 'software') {
